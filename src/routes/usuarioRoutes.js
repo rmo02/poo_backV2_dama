@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const {
+login,
 atualizar,
 criar,
 deletar,
@@ -12,11 +13,14 @@ listarTorneios
 //Criar usuarios
 router.post('/', criar);
 
+//fazer login
+router.post('/login', login);
+
 //Atualizar usuario
 router.put('/:id', atualizar);
 
 //Deletar usuario
-router.post('/:id', deletar);
+router.delete('/:id', deletar);
 
 //Listar todos os usuarios
 router.get('/', listar);

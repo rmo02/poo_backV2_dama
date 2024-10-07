@@ -11,12 +11,22 @@ module.exports = (sequelize) => {
     imagem: {
       type: DataTypes.STRING,
     },
-    texto:{
+    titulo:{
       type: DataTypes.STRING,
       allowNull:false
-    }
+    },
+    conteudo:{
+      type: DataTypes.TEXT,
+      allowNull:false
+    },
+    autor:{
+      type: DataTypes.STRING,
+      allowNull:false
+    },
   }, {
     tableName: 'noticias',
-    timestamps: false, 
+    timestamps: false,
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   });
 };

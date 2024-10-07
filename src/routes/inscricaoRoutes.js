@@ -18,6 +18,6 @@ router.get('/', listar);
 router.put('/:id', atualizar);
 
 //Deletar inscrição
-router.post('/:id', deletar);
+router.delete('/:id', deletar);
 
 module.exports = router;

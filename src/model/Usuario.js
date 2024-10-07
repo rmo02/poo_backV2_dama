@@ -37,7 +37,7 @@ module.exports = (sequelize) => {
     pontuacaoTotal: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0,  // Pontuação inicial será 0
+      defaultValue: 0,
     }
   }, {
     tableName: 'usuarios',

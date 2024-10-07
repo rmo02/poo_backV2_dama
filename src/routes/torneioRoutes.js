@@ -16,7 +16,7 @@ router.post('/', criar);
 router.put('/:id', atualizar);
 
 //Deletar torneio
-router.post('/:id', deletar);
+router.delete('/:id', deletar);
 
 //Listar todos os torneio
 router.get('/', listar);

@@ -14,10 +14,11 @@ const noticiaController = {
   // Criar uma nova notícia
   async criar(req, res) {
     try {
-      const { imagem, texto } = req.body;
-      const noticia = await Noticia.create({ imagem, texto });
+      const { imagem, titulo, conteudo, autor } = req.body;
+      const noticia = await Noticia.create({ imagem, titulo, conteudo, autor });
       res.status(201).json(noticia);
     } catch (error) {
+      console.log("erro ao criar noticia" ,error)
       res.status(500).json({ error: 'Erro ao criar notícia' });
     }
   },
@@ -26,14 +27,14 @@ const noticiaController = {
   async atualizar(req, res) {
     try {
       const { id } = req.params;
-      const { imagem, texto } = req.body;
+      const { imagem, titulo, conteudo, autor } = req.body;
 
       const noticia = await Noticia.findByPk(id);
       if (!noticia) {
         return res.status(404).json({ error: 'Notícia não encontrada' });
       }
 
-      await noticia.update({ imagem, texto });
+      await noticia.update({ imagem, titulo, conteudo, autor });
       res.json(noticia);
     } catch (error) {
       res.status(500).json({ error: 'Erro ao atualizar notícia' });
