@@ -15,6 +15,7 @@ const noticiaController = {
   async criar(req, res) {
     try {
       const { imagem, titulo, conteudo, autor } = req.body;
+      console.log(imagem, titulo, conteudo, autor)
       const noticia = await Noticia.create({ imagem, titulo, conteudo, autor });
       res.status(201).json(noticia);
     } catch (error) {
