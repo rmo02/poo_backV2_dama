@@ -21,6 +21,14 @@ const inscricaoController = {
   async criar(req, res) {
     try {
       const { usuarioId, torneioId, pontos } = req.body;
+
+      console.log("usuarioId", usuarioId)
+
+
+      if(!usuarioId){
+        return res.status(404).json({ error: 'Usuário não esta logado' });
+      }
+      
       const inscricao = await Inscricao.create({ usuarioId, torneioId, pontos });
       res.status(201).json(inscricao);
     } catch (error) {
